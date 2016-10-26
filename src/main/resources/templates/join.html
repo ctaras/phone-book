@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="Web project Phone Book"/>
+    <meta name="author" content="ctaras"/>
+    <title>Join Phone Book · Phone book</title>
+
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/sign.css}" rel="stylesheet"/>
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="container">
+    <div class="container-signin" th:object="${userForm}">
+
+        <div class="bs-component" th:if="${loginExists}">
+            <div class="alert alert-dismissible alert-danger">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>Oh snap!</strong> Login is already in use.
+            </div>
+        </div>
+
+        <form class="form-signin" accept-charset="UTF-8" th:action="@{/join}" method="post">
+            <h2 class="form-signin-heading">Join Phone Book</h2>
+
+            <label for="inputLogin" class="sr-only">Login</label>
+            <input type="text" id="inputLogin" class="form-control" placeholder="Login" th:field="*{login}"
+                   th:autofocus="true" th:classappend="${#fields.hasErrors('login')}? has-error"/>
+
+            <!--<input type="text" id="inputLogin" class="form-control" placeholder="Login" th:field="*{login}"-->
+                   <!--name="login" th:required="true" th:autofocus="true" pattern="^[a-zA-Z]{3,255}$"  />-->
+
+            <label for="inputFullName" class="sr-only">Full name</label>
+            <input type="text" id="inputFullName" class="form-control" placeholder="Full name" th:field="*{fullName}"
+                   th:classappend="${#fields.hasErrors('fullName')}? has-error"/>
+
+            <!--<input type="text" id="inputFullName" class="form-control" placeholder="Full name" th:field="*{fullName}"-->
+                   <!--name="fullName" th:required="true" pattern="^.{5,255}$" />-->
+
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" th:field="*{password}"
+                   th:classappend="${#fields.hasErrors('password')}? has-error"/>
+
+            <!--<input type="password" id="inputPassword" class="form-control" placeholder="Password" th:field="*{password}"-->
+                   <!--name="password" th:required="true" pattern="^.{5,255}$" />-->
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Join</button>
+        </form>
+
+        <div class="bs-component" th:if="${hasError}">
+            <ul class="list-group">
+                <li class="list-group-item" th:if="${#fields.hasErrors('login')}"><span th:errors="*{login}" class="text-danger">Incorrect login</span></li>
+                <li class="list-group-item" th:if="${#fields.hasErrors('fullName')}"><span th:errors="*{fullName}" class="text-danger">Incorrect full name</span></li>
+                <li class="list-group-item" th:if="${#fields.hasErrors('password')}"><span th:errors="*{password}" class="text-danger">Incorrect password</span></li>
+            </ul>
+        </div>
+
+        <div class="well">
+            Back to
+            <a href="/login">login page</a>.
+        </div>
+    </div>
+
+</div>
+
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

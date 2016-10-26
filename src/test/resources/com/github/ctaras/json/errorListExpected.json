@@ -1,0 +1,10 @@
+{
+  "errors" : [ {
+    "field" : "username",
+    "message" : "Username is null"
+  }, {
+    "field" : "password",
+    "message" : "Password is null"
+  } ],
+  "errorMessage" : "Validation failed. 2 error(s)"
+}

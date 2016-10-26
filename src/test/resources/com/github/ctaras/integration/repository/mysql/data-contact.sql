@@ -1,0 +1,3 @@
+INSERT INTO `contact` VALUES ('1060344d-a403-4873-a141-ec4799731b10', '1c60344d-a403-4873-a141-ec4799731b03', 'Ivan', 'Ivanov', 'Ivanovich', '380991234567', '380441234567', 'Lenina 22', 'ivanov@gmail.com');
+INSERT INTO `contact` VALUES ('2060344d-a403-4873-a141-ec4799731b10', '1c60344d-a403-4873-a141-ec4799731b03', 'Denis', 'Ivanov', 'Ivanovich', '380991234561', '380441234561', 'Lenina 23', 'denis@gmail.com');
+INSERT INTO `contact` VALUES ('3060344d-a403-4873-a141-ec4799731b10', '1c60344d-a403-4873-a141-ec4799731b03', 'Jorge', 'Ivanov', 'Ivanovich', '380991234562', '380441234562', 'Lenina 24', 'jorge@gmail.com');

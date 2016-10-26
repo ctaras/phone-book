@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+</head>
+<body>
+
+<div th:fragment="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="../" class="navbar-brand">Phone book</a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a id="link-profile" href="/profile" sec:authentication="name" data-text="Profile">Profile</a></li>
+                <li><a id="link-logout" href="#">Logout</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+    <form id="form-logout" method="post" th:action="@{/logout}"></form>
+</div>
+
+</body>
+</html>

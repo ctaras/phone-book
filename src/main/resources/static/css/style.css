@@ -1,0 +1,14 @@
+body {
+  padding-top: 50px;
+}
+input.has-error {
+    border-color: #ee5f5b
+}
+
+#add-contact {
+    float: right
+}
+
+table.dataTable tbody td {
+    vertical-align: middle;
+}

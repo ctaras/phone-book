@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8"/>
+    <meta name="description" content="Web project Phone Book"/>
+    <meta name="author" content="ctaras"/>
+    <meta http-equiv="refresh" content="5; url=/workspace" />
+    <title>Page not found · Phone book</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+<div class="container">
+
+    <div class="page-header">
+        <h1>Not found</h1>
+    </div>
+
+    <h3>The page you were looking for was not found</h3>
+    <p>If you are not redirected automatically, follow the <a th:href="@{/workspace}">link to workspace</a></p>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

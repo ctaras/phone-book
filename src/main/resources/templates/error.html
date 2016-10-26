@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8"/>
+    <meta name="description" content="Web project Phone Book"/>
+    <meta name="author" content="ctaras"/>
+    <title>Error page · Phone book</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+<div class="container">
+
+
+    <div class="page-header">
+        <h1>Error Page</h1>
+    </div>
+
+    <p th:if="${url}">
+        <b>Page:</b> <span th:text="${url}">Page URL</span>
+    </p>
+
+    <p th:if="${timestamp}" id='created'>
+        <b>Occurred:</b> <span th:text="${timestamp}">Timestamp</span>
+    </p>
+
+    <p th:if="${status}">
+        <b>Response Status:</b> <span th:text="${status}">status-code</span> <span
+            th:if="${error}" th:text="'('+${error}+')'">error ...</span>
+    </p>
+
+    <div
+            th:if="${ex} or ${exception} or (${message} and ${message.length() != 0})">
+        <b>Cause:</b> <span th:if="${ex}" th:text="${ex}">exception ...</span>
+        <span th:if="${exception}" th:text="${exception}">exception ...</span>
+		<span th:if="${message} and ${message.length() != 0}"
+              th:text="${message}">message ...</span>
+        <blockquote>
+            <i>Note: You would never generate a page that displays a Java
+                exception to an end-user in a real application</i>
+        </blockquote>
+    </div>
+
+    <p
+            th:unless="${ex} or ${exception} or (${message} and ${message.length() != 0})">
+        Cause unknown (no exception details available)</p>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
