@@ -12,14 +12,14 @@ Application support MySQL and CSV repositories
  - JQuery
  - Bootstrap
 
-##Build and run application
+## Build and run application
 
 ./mvnw clean package && java -Dlardi.conf=repository/config/sample-mysql.properties -Dspring.profiles.active=mysql -jar target/phone-book-0.0.1-SNAPSHOT.jar
 Go to [http://localhost:8080/](http://localhost:8080/) to login page
 
-##Sample properties
+## Sample properties
 
-####MySQL ([repository/config/sample-mysql.properties](repository/config/sample-mysql.properties))
+#### MySQL ([repository/config/sample-mysql.properties](repository/config/sample-mysql.properties))
 
 ```properties
 lardi.datasource.url=jdbc:mysql://localhost/phonebook
@@ -28,40 +28,40 @@ lardi.datasource.password=
 lardi.datasource.driver-class-name=com.mysql.jdbc.Driver
 ``` 
 
-####CSV ([repository/config/sample-csv.properties](repository/config/sample-csv.properties))
+#### CSV ([repository/config/sample-csv.properties](repository/config/sample-csv.properties))
 
 ```properties
 lardi.datasource.path=repository/csv
 ``` 
 
-##Tests
+## Tests
 
-####Unit tests
+#### Unit tests
 
 ./mvnw clean test
 
-####DB and REST tests
+#### DB and REST tests
 
-######MySQL
+###### MySQL
 
 ./mvnw clean -P integration-test,mysql test
 
-######CSV
+###### CSV
 
 ./mvnw clean -P integration-test,csv test
 
 
-####Run with maven
+#### Run with maven
 
-######MySQL
+###### MySQL
 
 ./mvnw spring-boot:run -Drun.jvmArguments="-Dlardi.conf=repository/config/sample-mysql.properties -Dspring.profiles.active=mysql"
 
-######CSV
+###### CSV
 
 ./mvnw spring-boot:run -Drun.jvmArguments="-Dlardi.conf=repository/config/sample-csv.properties -Dspring.profiles.active=csv"
 
-##MySQL TABLES
+## MySQL TABLES
 
 ```sql
 CREATE TABLE IF NOT EXISTS `user` (
